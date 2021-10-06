@@ -1,0 +1,27 @@
+%Nearest neighbor training error rate is [YOUR VALUE].
+%Nearest neighbor test error rate is [YOUR VALUE].
+
+%This function takes in a training data matrix Xtrain, training
+%label vector ytrain and uses them to compute the average cat
+%and dog vectors. It also takes in a data matrix Xrun and 
+%produces a vector of label guesses yguess. Each guess is found
+%by searching through Xtrain to find the closest row, and then 
+%outputting its label.
+function minind = nearest_neighbor(Xtrain,ytrain,Xrun)
+[row_t, col_t] =size(Xtrain);
+[row_r,col_r] = size(Xrun);
+minval = 0;
+mini
+yguess = zeros(row,1);
+%%minvec = zeros(row,1);
+distances = zeros(row,col);
+
+for i = 1:row
+    for j = 1:col
+        distances(i,j) = sqrt(sum((Xrun(i,j)-Xtrain(i,j)).^2));
+    end
+    [minval, minind] = min(distances(i,:));
+    yguess(i) = minind;
+end
+end
+

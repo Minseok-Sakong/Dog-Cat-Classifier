@@ -1,0 +1,21 @@
+function yguess = closest_average(Xtrain,ytrain,Xrun)
+[meancat, meandog] = average_pet(Xtrain, ytrain);
+[n,p] = size(Xrun); 
+yguess = zeros(n,1);
+catVector = zeros(n,1);
+dogVector = zeros(n,1);
+
+for j = 1:n
+    catVector(j) = sqrt(sum((Xrun(j,:)-meancat).^2));
+end
+for k = 1:n
+    vdog(k) = sqrt(sum((Xrun(k,:)-meandog).^2));
+end
+for i = 1:n
+   if (vcat(i) <= vdog(i))
+      yguess(i) = -1;
+   else
+      yguess(i) = 11;
+    end
+end
+end

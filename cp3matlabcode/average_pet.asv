@@ -1,0 +1,19 @@
+%This function takes in a data matrix X and a label
+%vector y and outputs the average cat image and average dog image.
+function [avgcat avgdog] = average_pet(X,y)
+[a,b] = size(X); %%a
+ac = zeros(1,b);
+ad = zeros(1,b);
+for i = 1:b
+    for j = 1:a
+        if (y(j,1) == -1)
+            ac(1,i) = ac(1,i) + X(j,i);
+        elseif (y(j,1) == 1)
+            ad(1,i) = ad(1,i) + X(j,i);
+        end
+    end
+end
+avgcat = ac/a;
+avgdog = ad/a;
+
+
